@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Bolos</title>
+
+    <link rel="stylesheet" href="{% static 'catalogo/style.css' %}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Nossos deliciosos Bolos</h1>
+
+        <a href="{% url 'catalogo:home' %}">Voltar</a>
+
+        {% if bolos %}
+
+            <ul class="lista">
+
+                {% for bolo in bolos %}
+
+                    <li>
+                        <a href="{% url 'catalogo:detalhe_bolo' bolo.pk %}">
+                            {{ bolo.nome }}
+                        </a>
+
+                        - R$ {{ bolo.preco }}
+                    </li>
+
+                {% endfor %}
+
+            </ul>
+
+        {% else %}
+
+            <p>Nenhum bolo cadastrado.</p>
+
+        {% endif %}
+
+        <a href="{% url 'catalogo:novo_bolo' %}" class="botao">
+            Adicionar novo bolo
+        </a>
+
+    </div>
+
+</body>
+</html>

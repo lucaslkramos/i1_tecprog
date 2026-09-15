@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Bolo</title>
+    <link rel="stylesheet" href="{% static 'catalogo/style.css' %}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Adicionar ou Editar Bolo</h1>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit">
+                Salvar
+            </button>
+
+            <a href="{% url 'catalogo:lista_bolos' %}">
+                Cancelar
+            </a>
+
+        </form>
+
+    </div>
+
+</body>
+</html>

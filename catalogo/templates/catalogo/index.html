@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Minha Confeitaria</title>
+    <link rel="stylesheet" href="{% static 'catalogo/style.css' %}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Bem-vindo a Minha Confeitaria</h1>
+
+        <p>Escolha uma das opções abaixo:</p>
+
+        <div class="menu">
+            <a href="{% url 'catalogo:lista_bolos' %}" class="botao">
+                Nossos Bolos
+            </a>
+
+            <a href="{% url 'catalogo:novo_bolo' %}" class="botao">
+                Novo Bolo
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>
